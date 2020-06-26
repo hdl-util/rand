@@ -3,9 +3,12 @@ module lhca #(
     parameter bit [WIDTH-1:0] DIAGONAL = WIDTH'(0)
 ) (
     input logic clk,
-    // a source of true randomness, i.e. ring oscillators
-    // without it, the output will be pseudo-random,
-    // and LHCA acts as a scrambler
+
+    // A source of true randomness, makes the LHCA act as a scrambler.
+    // You can use ring oscillators for this when the oscillation
+    // frequency is significantly higher than the clock frequency.
+
+    // Without it, the output will be pseudo-random,
     input logic [WIDTH-1:0] source,
     output logic [WIDTH-1:0] state
 );
