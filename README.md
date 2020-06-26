@@ -6,7 +6,7 @@ SystemVerilog code for arbitrary width random number utilities.
 
 ## Why?
 
-I needed an efficient, easy way to generate gray codes for dual clock FIFOs. It's a pain to manually write out a gray code. Why not let a module do the heavy lifting for you?
+Needed an arbitrary width LFSR implementation. The one I've included works for 4 through 64 bits, but is easily extensible with the addition of more constants found using [mlpolygen](https://bitbucket.org/gallen/mlpolygen/src/default/).
 
 ## Usage
 
