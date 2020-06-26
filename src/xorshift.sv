@@ -5,9 +5,11 @@ module xorshift #(
     parameter bit [WIDTH-1:0] POLYNOMIAL = WIDTH'(0)
 ) (
     input logic clk,
+    // Synchronous reset
     input logic reset,
+    // An optional seed used to set the initial state upon reset
     input logic [WIDTH-1:0] seed,
-    output logic [WIDTH-1:0] state
+    output logic [WIDTH-1:0] state = WIDTH'(0)
 );
 
 logic [WIDTH-1:0] polynomial;
@@ -16,12 +18,16 @@ logic lfsr_xnor;
 integer i;
 always_comb
 begin
-    lfsr_xnor = 1'b0;
+    lfsr_xnor = 0;
     for (i = 0; i < WIDTH; i++)
     begin
         if (polynomial[i])
             lfsr_xnor = lfsr_xnor ^~ state[i];
     end
+    // Trick to negate the fact that it's initially set to 0. It should be synthesized away.
+    // This works because the maximal length polynomials all have an even number of terms.
+    // Have confirmed it works for a few values, but I may be wrong.
+    lfsr_xnor = lfsr_xnor ^~ 0;
 end
 
 always_ff @(posedge clk)
