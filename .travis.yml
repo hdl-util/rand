@@ -23,6 +23,8 @@ script:
     - export PATH=$PATH:/home/travis/intelFPGA/19.1/modelsim_ase/bin
     - cd ./sim/xorshift_tb/ && hdlmake fetch && hdlmake && make
     - cd -
+    - cd ./sim/lhca_tb/ && hdlmake fetch && hdlmake && make
+    - cd -
 
 cache:
     directories:
