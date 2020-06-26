@@ -18,9 +18,21 @@ Needed an arbitrary width LFSR implementation. The one I've included works for 4
 1. Read through the parameter descriptions in `xorshift.sv` and tailor any instantiations to your situation.
 1. Please create an issue if you run into a problem or have any questions.
 
+### LHCA
+
+See `lhca.sv`. It's backed by a ring oscillator as a source of true randomness.
+
 ## To-do List
 
 * [x] [Xorshift](https://en.wikipedia.org/wiki/Xorshift) (LFSR)
+* [x] [LHCA]()
 * [ ] [CBRNG](https://en.wikipedia.org/wiki/Counter-based_random_number_generator_(CBRNG)#Squares_RNG)
   * Making Squares RNG arbitrary width seems non-trivial, unfortunately
 * More upon request
+
+
+## Reference Documents
+
+*These documents are not hosted here!*
+
+* [High Speed True Random Number Generators in Xilinx FPGAs](http://forums.xilinx.com/xlnx/attachments/xlnx/EDK/27322/1/HighSpeedTrueRandomNumberGeneratorsinXilinxFPGAs.pdf)

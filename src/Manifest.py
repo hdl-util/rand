@@ -1,3 +1,5 @@
 files = [
-    "xorshift.sv"
+    "xorshift.sv",
+    "ring_oscillator.sv",
+    "lhca.sv"
 ]
