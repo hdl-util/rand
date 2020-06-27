@@ -4,7 +4,8 @@ module lhca #(
 ) (
     input logic clk,
 
-    // A source of true randomness, makes the LHCA act as a scrambler.
+    // A source of true randomness, so that the LHCA can act as a scrambler.
+    // This is different from a seed, in that it should not remain the same.
     // You can use ring oscillators for this when the oscillation
     // frequency is significantly higher than the clock frequency.
 
